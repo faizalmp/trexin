@@ -72,7 +72,7 @@ exports.get = async function (req, res) {
 
 exports.update = async function (req, res) {
     var resi_ini = null;
-    Resi.findOneAndUpdate({ no_resi: req.params.no_resi }, { $set:{lokasi_sekarang : req.body.lokasi_sekarang}}).then(resi => {
+    Resi.findOneAndUpdate({ no_resi: req.params.no_resi }, { $set:{lokasi_sekarang : req.body.lokasi}}).then(resi => {
         
         resi_ini = resi
                
