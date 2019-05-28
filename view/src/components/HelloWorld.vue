@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-parallax src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"></v-parallax>
+    <v-parallax src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="100%"></v-parallax>
   </div>
 </template>
 
