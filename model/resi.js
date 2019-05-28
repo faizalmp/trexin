@@ -78,7 +78,8 @@ const resiSchema = mongoose.Schema({
     },
     tanggal_kirim : {
         type : Number,
-        required : true
+        required : true,
+        timestamps : true
     }
 })
 
