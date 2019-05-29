@@ -63,7 +63,7 @@ import axios from 'axios'
     methods: {
       initialize () {
         console.log(this.cari_resi)
-        axios.get('https://trexin.herokuapp.com/api/resi/' + this.cari_resi, ).then(response => {
+        axios.get('http://trexin.herokuapp.com/api/resi/' + this.cari_resi).then(response => {
               this.items = response.data_resi
               this.from = this.resi.lokasi_asal.kecamatan + ", " + this.resi.lokasi_asal.kota + ", " + this.resi.lokasi_asal.provinsi
               this.now = this.resi.lokasi_sekarang.kecamatan + ", " + this.resi.lokasi_sekarang.kota + ", " + this.resi.lokasi_sekarang.provinsi
