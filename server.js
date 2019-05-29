@@ -18,7 +18,7 @@ app.use(bodyParser.json())
 
 app.use('/api', router)
 
-app.use(cors())
+app.use(cors)
 
 app.get('/', (req, res) => {
     res.send({ message : "Welcome to tracking apps" })

@@ -6,7 +6,7 @@
         <v-img src="https://i.ibb.co/FJrSMBL/trexinlogo.png" width="400"></v-img>
         <v-flex mt-4>
           <v-form>
-            <v-text-field solo append-icon="search" v-model="cari_resi" placeholder="Masukkan Nomor resi"></v-text-field>
+            <v-text-field solo append-icon="search" v-model="cari_resi" return-object placeholder="Masukkan Nomor resi"></v-text-field>
             <v-subheader>{{cari_resi}}</v-subheader>
             <v-btn @click="initialize" color="primary">Cari Resi</v-btn>
             
@@ -64,7 +64,7 @@ import axios from 'axios'
     },
     methods: {
       initialize () {
-        
+        console.log(this.cari_resi)
         axios.get('https://trexin.herokuapp.com/api/resi/' + this.cari_resi).then(response => {
               this.items = response.data_resi
               this.from = this.resi.lokasi_asal.kecamatan + ", " + this.resi.lokasi_asal.kota + ", " + this.resi.lokasi_asal.provinsi
