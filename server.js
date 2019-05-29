@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const router = require('./controller/router')
 const key = require('./keys').mongoURI
+const cors = require('cors')
 
 const app = express();
 
@@ -16,6 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.use('/api', router)
+
+app.use(cors())
 
 app.get('/', (req, res) => {
     res.send({ message : "Welcome to tracking apps" })

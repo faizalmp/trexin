@@ -7,7 +7,9 @@
         <v-flex mt-4>
           <v-form>
             <v-text-field solo append-icon="search" v-model="cari_resi" placeholder="Masukkan Nomor resi"></v-text-field>
-            <v-btn @click="initialize">Cari Resi</v-btn>
+            <v-subheader>{{cari_resi}}</v-subheader>
+            <v-btn @click="initialize" color="primary">Cari Resi</v-btn>
+            
           </v-form>
         </v-flex>
         <v-flex mt-4>
@@ -21,9 +23,6 @@
               <td class="text-xs-left">{{ props.item.from }}</td>
               <td class="text-xs-left">{{ props.item.now }}</td>
               <td class="text-xs-left">{{ props.item.to }}</td>
-            </template>
-            <template v-slot:no-data>
-              <v-btn color="primary" @click="initialize">Reset</v-btn>
             </template>
           </v-data-table>
         </v-flex>
@@ -66,11 +65,11 @@ import axios from 'axios'
     methods: {
       initialize () {
         
-        axios.get('https://trexin.herokuapp.com/api/resi/' + this.cari_resi, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then(response => {
+        axios.get('https://trexin.herokuapp.com/api/resi/' + this.cari_resi).then(response => {
               this.items = response.data_resi
-              //this.from = this.resi.lokasi_asal.kecamatan + ", " + this.resi.lokasi_asal.kota + ", " + this.resi.lokasi_asal.provinsi
-              //this.now = this.resi.lokasi_sekarang.kecamatan + ", " + this.resi.lokasi_sekarang.kota + ", " + this.resi.lokasi_sekarang.provinsi
-              //this.to = this.resi.lokasi_tujuan.kecamatan + ", " + this.resi.lokasi_tujuan.kota + ", " + this.resi.lokasi_tujuan.provinsi
+              this.from = this.resi.lokasi_asal.kecamatan + ", " + this.resi.lokasi_asal.kota + ", " + this.resi.lokasi_asal.provinsi
+              this.now = this.resi.lokasi_sekarang.kecamatan + ", " + this.resi.lokasi_sekarang.kota + ", " + this.resi.lokasi_sekarang.provinsi
+              this.to = this.resi.lokasi_tujuan.kecamatan + ", " + this.resi.lokasi_tujuan.kota + ", " + this.resi.lokasi_tujuan.provinsi
               console.log(items)
           }).catch(error => console.log(error)) 
        
